@@ -1,0 +1,16 @@
+<div class="form-control" *ngIf="control">
+    <input type="text" [formControl]="control">
+    <ng-container *ngIf="control.dirty && control.touched && control.errors as errors">
+        <div *ngIf="errors['required']" class="error-message">Value is required</div>
+        <div *ngIf="errors['minlength'] as error" class="error-message">Value must be
+            <strong>{{error['requiredLength']}}</strong> characters or more
+        </div>
+        <div *ngIf="errors['maxlength'] as error" class="error-message">Value must be
+            <strong>{{error['requiredLength']}}</strong> characters or less
+        </div>
+        <div *ngIf="errors['pattern'] as error" class="error-message">Please input a valid value
+        </div>
+        <div *ngIf="errors['email'] as error" class="error-message">Please input a valid email address
+        </div>
+    </ng-container>
+</div>

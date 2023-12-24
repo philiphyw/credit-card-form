@@ -1,12 +1,6 @@
 <form [formGroup]="cardForm">
-    <div class="item">
-        <input formControlName="name" type="text" class="form-control">
-        <ng-container *ngIf="cardForm.controls.name.touched && cardForm.controls.name.errors as errors">
-            <div *ngIf="errors['required']" class="error-message">Value is required</div>
-            <div *ngIf="errors['minlength']" class="error-message">Value must be
-                <strong>{{errors['minlength']['requiredLength']}}</strong> characters or more</div>
-        </ng-container>
-    </div>
+   <app-form-input [control]="cardForm.controls.name"></app-form-input>
+   <app-form-input [control]="cardForm.controls.email"></app-form-input>
 </form>
 
 <div>Form Contents:{{cardForm.value | json}}</div>

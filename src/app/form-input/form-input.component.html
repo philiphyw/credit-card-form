@@ -1,5 +1,7 @@
-<div class="form-control" *ngIf="control">
-    <input type="text" [formControl]="control">
+<div class="field" *ngIf="control">
+    <label class="label">{{label}}</label>
+   <div class="control">
+    <input type="text" class="input" [formControl]="control" [ngClass]="{'is-danger':showError()}">
     <ng-container *ngIf="control.dirty && control.touched && control.errors as errors">
         <div *ngIf="errors['required']" class="error-message">Value is required</div>
         <div *ngIf="errors['minlength'] as error" class="error-message">Value must be
@@ -13,4 +15,5 @@
         <div *ngIf="errors['email'] as error" class="error-message">Please input a valid email address
         </div>
     </ng-container>
+   </div>
 </div>

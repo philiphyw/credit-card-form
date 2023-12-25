@@ -8,8 +8,14 @@ import { FormControl } from '@angular/forms';
 })
 export class FormInputComponent implements OnInit {
   @Input() control?: FormControl;
+  @Input() label?: string;
 
   ngOnInit(): void {
     console.log(this.control);
+  }
+
+  showError(){
+    const control = this.control;
+    return control?.dirty && control.touched && control.errors
   }
 }

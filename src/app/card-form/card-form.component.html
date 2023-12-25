@@ -1,6 +1,8 @@
 <form [formGroup]="cardForm">
-   <app-form-input [control]="cardForm.controls.name"></app-form-input>
-   <app-form-input [control]="cardForm.controls.email"></app-form-input>
+   <app-form-input [control]="cardForm.controls.name" label="Name"></app-form-input>
+   <app-form-input [control]="cardForm.controls.cardNumber" label="Card Number"></app-form-input>
+   <app-form-input [control]="cardForm.controls.expiration" label="Expiration"></app-form-input>
+   <app-form-input [control]="cardForm.controls.securityCode" label="Security Code"></app-form-input>
 </form>
 
 <div>Form Contents:{{cardForm.value | json}}</div>

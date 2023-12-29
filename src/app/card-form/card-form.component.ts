@@ -11,19 +11,22 @@ export class CardFormComponent implements OnInit {
     name: new FormControl('', [Validators.required, Validators.minLength(3)]),
     cardNumber: new FormControl('', [
       Validators.required,
-      Validators.minLength(16),
+      Validators.minLength(10),
       Validators.maxLength(16),
     ]),
-    expiration: new DateFromControl('', [
+    expiration: new FormControl('', [
       Validators.required,
-      Validators.pattern(/^(0[1-9]|1[0-2])\/\d{2}$/),
     ]),
-    securityCode: new FormControl('', [Validators.required]),
+    securityCode: new DateFromControl('', [Validators.required]),
   });
 
   ngOnInit(): void {}
 
   onSubmit() {
     console.log(this.cardForm.value);
+  }
+
+  onReset(){
+    this.cardForm.reset();
   }
 }

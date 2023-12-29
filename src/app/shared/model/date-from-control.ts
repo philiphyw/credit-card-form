@@ -5,7 +5,7 @@ export class DateFromControl extends FormControl {
   override setValue(value: string, options: any): void {
     // Haul the value update if it's not a number or /
     // this.value is sotred in the FormControl object by default
-    if (value.match(/^\d|\/|\d$/gi)) {
+    if (!value.match(/^\d|\/|\d$/gi)) {
       super.setValue(this.value, { ...options, emitModelToViewChange: true });
       return;
     }

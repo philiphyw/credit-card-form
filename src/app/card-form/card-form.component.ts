@@ -14,10 +14,10 @@ export class CardFormComponent implements OnInit {
       Validators.minLength(10),
       Validators.maxLength(16),
     ]),
-    expiration: new FormControl('', [
+    expiration: new DateFromControl('', [
       Validators.required,
     ]),
-    securityCode: new DateFromControl('', [Validators.required]),
+    securityCode: new FormControl('', [Validators.required]),
   });
 
   ngOnInit(): void {}

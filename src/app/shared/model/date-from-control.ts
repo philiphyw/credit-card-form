@@ -2,10 +2,17 @@ import { FormControl } from '@angular/forms';
 
 export class DateFromControl extends FormControl {
   // override the default setValue method in the FormControl class
-  override setValue(value: string, options: any): void {
-    // Haul the value update if it's not a number or /
+  override setValue(value: string | null, options: any): void {
+    if (!value){
+
+      super.setValue('', { ...options, emitModelToViewChange: true });
+      return;
+
+    }else{
+
+      // Haul the value update if it's not a number or /
     // this.value is sotred in the FormControl object by default
-    if (!value.match(/^\d|\/|\d$/gi)) {
+    if (value.match(/[^\d|\/]/gi)) {
       super.setValue(this.value, { ...options, emitModelToViewChange: true });
       return;
     }
@@ -26,5 +33,8 @@ export class DateFromControl extends FormControl {
       super.setValue(value + '/', { ...options, emitModelToViewChange: true });
       return;
     }
+
+    }
+    
   }
 }

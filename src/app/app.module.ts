@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CardFormComponent } from './card-form/card-form.component';
 import { FormInputComponent } from './form-input/form-input.component';
+import { CardComponent } from './card/card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CardFormComponent,
-    FormInputComponent
+    FormInputComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,

@@ -1,3 +1,6 @@
 <div class="container">
- <app-card-form></app-card-form>
+    <div class="columns">
+        <app-card class="column" [creditCard]="creditCard"></app-card>
+        <app-card-form class="column" (onSubmitCard)="updateCreditCard($event)"></app-card-form>
+    </div>
 </div>

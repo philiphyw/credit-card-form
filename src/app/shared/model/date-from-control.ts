@@ -12,8 +12,8 @@ export class DateFromControl extends FormControl {
 
       // Haul the value update if it's not a number or /
     // this.value is sotred in the FormControl object by default
-    if (value.match(/[^\d|\/]/gi)) {
-      super.setValue(this.value, { ...options, emitModelToViewChange: true });
+    if ((/^(0[1-9]|1[0-2])\/?([0-9]{4}|[0-9]{2})$/).test(value)) {
+      super.setValue(value, { ...options, emitModelToViewChange: true });
       return;
     }
     // Haul the update if the value lenght is greater than 5
